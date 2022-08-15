@@ -16,44 +16,48 @@ Create conda environment:-  conda create -p venv python==3.7 -y
 
 pip install -r requirements.txt
 
-Add files to git at once:- git add .
-Add files to git individually :- git add <file_name>
+Add files to git at once:-    git add .
 
-To check the git status
 
-git status
-To check all version maintained by git
+Add files to git individually:-   git add <file_name>
 
-git log
-To create version/commit all changes by git
 
-git commit -m "message"
-To send version/changes to github
 
-git push origin main
-To check remote url
+To check the git status:-  git status
 
-git remote -v
+
+
+To check all version maintained by git:-   git log
+
+
+To create version/commit all changes by git:-  git commit -m "message"
+
+
+To send version/changes to github:-    git push origin main
+
+
+To check remote url:-  git remote -v
+
+
 To setup CI/CD pipeline in heroku we need 3 information
 
 HEROKU_EMAIL = <>
-HEROKU_API_KEY = <>
-HEROKU_APP_NAME = <>
-BUILD DOCKER IMAGE
 
-docker build -t <image_name>:<tagname> .
+HEROKU_API_KEY = <>
+
+HEROKU_APP_NAME = <>
+
+
+BUILD DOCKER IMAGE:-  docker build -t <image_name>:<tagname> .
 Note: Image name for docker must be lowercase
 
-To list docker image
 
-docker images
+To list docker image:-  docker images
 
-To check running container in docker
-docker ps
+To check running container in docker:-  docker ps
 
 
-To stop docker conatiner
-docker stop <container_id>
+To stop docker conatiner:-  docker stop <container_id>
 
 
 
