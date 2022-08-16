@@ -64,6 +64,7 @@ class Configuartion:
         except Exception as e:
             raise bikeException(e, sys) from e
 
+
     def get_data_validation_config(self) -> DataValidationConfig:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
@@ -110,8 +111,6 @@ class Configuartion:
 
             data_transformation_config_info = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
 
-            add_bedroom_per_room = data_transformation_config_info[DATA_TRANSFORMATION_ADD_BEDROOM_PER_ROOM_KEY]
-
             preprocessed_object_file_path = os.path.join(
                 data_transformation_artifact_dir,
                 data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY],
@@ -132,7 +131,6 @@ class Configuartion:
             )
 
             data_transformation_config = DataTransformationConfig(
-                add_bedroom_per_room=add_bedroom_per_room,
                 preprocessed_object_file_path=preprocessed_object_file_path,
                 transformed_train_dir=transformed_train_dir,
                 transformed_test_dir=transformed_test_dir
