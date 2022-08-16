@@ -1,0 +1,78 @@
+columns:
+  season: object
+  yr: object
+  mnth: object
+  hr: int
+  holiday: object
+  weekday: object
+  workingday: object
+  weathersit: object
+  temp: float
+  atemp: float
+  hum: float
+  windspeed: float
+  cnt: int
+
+numerical_columns:
+  - hr
+  - temp
+  - atemp
+  - hum
+  - windspeed
+  - casual
+  - registered
+  - cnt
+
+categorical_columns:
+  - season
+  - yr
+  - mnth
+  - holiday
+  - weekday
+  - workingday
+  - weathersit
+
+target_column: cnt
+
+domain_value:
+  season:
+    - 1
+    - 2
+    - 3
+    - 4
+  yr:
+    - 0
+    - 1
+  mnth:
+    -1
+    -2
+    -3
+    -4
+    -5
+    -6
+    -7
+    -8
+    -9
+    -10
+    -11
+    -12
+  weekday:
+    -0
+    -1
+    -2
+    -3
+    -4
+    -5
+    -6
+  hr:
+    -0
+  workingday:
+    -0
+    -1
+  weathersit:
+    -1
+    -2
+    -3
+    -4
+
+
