@@ -1,0 +1,139 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>bike Estimator</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+        <form action="/predict" method="post">
+            <legend>bike sharing Estimation Form</legend>
+            <div class="mb-3">
+                <label class="form-label">season</label>
+                <input class="form-control" type="text" name="season" placeholder="Enter a value of season"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">yr</label>
+                <input class="form-control" type="text" name="yr" placeholder="Enter a value of yr"
+                    required />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">mnth</label>
+                <input class="form-control" type="text" name="mnth"
+                    placeholder="Enter a value of mnth" />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">hr</label>
+                <input class="form-control" type="text" name="hr" placeholder="Enter a value of hour"
+                    required />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">holiday</label>
+                <input class="form-control" type="text" name="holiday"
+                    placeholder="Enter a value of holiday" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">weekday</label>
+                <input class="form-control" type="text" name="weekday" placeholder="Enter a value of population"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">workingday</label>
+                <input class="form-control" type="text" name="workingday" placeholder="Enter a value of workingday"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">weathersit</label>
+                <input class="form-control" type="text" name="weathersit"
+                    placeholder="Enter a value of weathersit" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">temp</label>
+                <input class="form-control" name="temp" placeholder="Enter a value of temp"
+                    required>
+                </input>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">atemp</label>
+                <input class="form-control" name="atemp" placeholder="Enter a value of atemp"
+                    required>
+                </input>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">hum</label>
+                <input class="form-control" name="hum" placeholder="Enter a value of hum"
+                    required>
+                </input>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">windspeed</label>
+                <input class="form-control" name="windspeed" placeholder="Enter a value of temp"
+                    required>
+                </input>
+            </div>
+
+            <div class="mb-3">
+
+                <input class="btn btn-primary" type="submit" value="Predict count Value" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              bike prediction
+            </div>
+            <div class="card-body">
+        {% if context['bike_data'] is not none %}
+        <table class="table table-striped">
+            <caption>bike sharing Prediction </caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['bike_data'].items() %}
+
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>count of rental bike </td>
+                <td>
+                    {{ context['cnt'] }}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+       
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to estimate bike sharing</p>
+            
+         
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+
+    {% endblock %}
